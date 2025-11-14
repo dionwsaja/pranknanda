@@ -1,0 +1,93 @@
+/* Pengaturan dasar halaman */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  color: #333;
+}
+
+/* Kontainer untuk menampung semua card */
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Biar rapi di layar kecil */
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* CSS untuk animasi flip (Bagian Penting) */
+
+/* 1. Ukuran Card */
+.card {
+  width: 200px;
+  height: 280px;
+  background-color: transparent;
+  perspective: 1000px; /* Efek 3D */
+  cursor: pointer;
+}
+
+/* 2. Kontainer bagian dalam yang akan berputar */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Saat di-klik, class .is-flipped akan ditambah oleh JS */
+.card.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* 4. Tampilan depan dan belakang card */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Biar tidak terlihat bagian belakangnya */
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+/* 5. Tampilan depan (sebelum di-flip) */
+.card-front {
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 6. Tampilan belakang (setelah di-flip) */
+.card-back {
+  background-color: white;
+  color: black;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Gambar akan mengisi kotak */
+  border-radius: 10px;
+}
+
+.ulangi {
+  padding: 48px;
+}
