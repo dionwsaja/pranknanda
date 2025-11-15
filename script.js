@@ -1,7 +1,7 @@
 // --- URL Gambar Hadiah ---
 // (Kamu bisa ganti link gambar ini)
 
-const imgSandal = "./images/dion.jpg";
+const imgSandal = "./images/nanda.jpg";
 const imgIpad = "./images/ipad.jpeg";
 
 // ---------------------------
